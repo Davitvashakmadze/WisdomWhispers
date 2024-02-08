@@ -25,6 +25,7 @@
       color: rgba(206, 227, 233, 1);
     }
     .gen-btn {
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -38,9 +39,11 @@
       background: rgba(83, 255, 170, 1);
       transition: 0.3s ease-in-out;
     }
-    .gen-btn:active {
+    .gen-btn:hover {
       box-shadow: 0px 0px 40px 0px rgba(83, 255, 170, 1);
     }
-    
+    .gen-btn:active {
+      top: 93%;
+    }
   }
 }
