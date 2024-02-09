@@ -3,31 +3,35 @@ import "./home.scss";
 import image from "./images/pattern-divider-desktop.svg";
 import genBtn from "./images/icon-dice.svg";
 
+
 const Home = () => {
   const [advice, serAdvice] = useState(
-    "“It is easy to sit up and take notice, what's difficult is getting up and taking action.”"
+    "Click down button to generate Advice"
   );
 
-  const [jsonData, setJsonData] = useState(null);
+  const [adviceNum, setAdviceNum] = useState("")
+ 
 
   const fetchData = async () => {
     try {
-      const response = await fetch("YOUR_API_ENDPOINT_HERE");
-      const data = await response.json();
-      setJsonData(data);
+      const response = await fetch('https://api.adviceslip.com/advice/');
+      console.log(response)
+      serAdvice("response");
+      setAdviceNum("number")
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   const handlButtonClick = () => {
-    console.log("click");
+    console.log("click", );
     fetchData();
+    
   };
   return (
     <div className="app">
       <div className="main-app">
-        <div className="advice-num">ADVICE #117</div>
+        <div className="advice-num">ADVICE #{adviceNum}</div>
         <div className="advice">{advice}</div>
         <div className="pattern-image">
           <img src={image} alt="" />
