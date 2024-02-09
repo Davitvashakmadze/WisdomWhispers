@@ -2,7 +2,9 @@ import React from "react";
 import "./home.scss";
 import image from "./images/pattern-divider-desktop.svg"
 import genBtn from "./images/icon-dice.svg"
+import { useState } from "react";
 const home = () => {
+  
   const handlButtonClick = () => {
     console.log("click")
   }
