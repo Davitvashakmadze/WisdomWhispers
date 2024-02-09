@@ -3,6 +3,9 @@ import "./home.scss";
 import image from "./images/pattern-divider-desktop.svg"
 import genBtn from "./images/icon-dice.svg"
 const home = () => {
+  const handlButtonClick = () => {
+    console.log("click")
+  }
   return (
     <div className="app">
       <div className="main-app">
@@ -14,7 +17,7 @@ const home = () => {
         <div className="pattern-image">
           <img src={image} alt="" />
         </div>
-        <button className="gen-btn">
+        <button className="gen-btn" onClick={handlButtonClick}>
           <img src={genBtn} alt="" />
         </button>
       </div>
