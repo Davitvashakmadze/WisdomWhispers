@@ -6,27 +6,47 @@ import genBtn from "./images/icon-dice.svg";
 
 const Home = () => {
   const [advice, serAdvice] = useState(
-    "Click down button to generate Advice"
+    "Click down green button to generate Advice"
   );
 
-  const [adviceNum, setAdviceNum] = useState("")
+  const [adviceNum, setAdviceNum] = useState("----------")
  
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://api.adviceslip.com/advice/');
-      console.log(response)
-      serAdvice("response");
-      setAdviceNum("number")
+      const response = await fetch('https://api.adviceslip.com/advice');
+      const data = await response.json();
+
+      // Check if 'slip' property exists in the response
+      if (data.slip.advice) {
+        serAdvice(data.slip.advice);
+      } else {
+        throw new Error('Invalid response format');
+      }
     } catch (error) {
-      console.error("Error fetching data:", error);
-      
+      console.error('Error fetching advice:', error);
+    }
+  };
+
+  const fetchAdviceById = async (slipId) => {
+    try {
+      const response = await fetch(`https://api.adviceslip.com/advice/${slipId}`);
+      const data = await response.json();
+
+      if (data.slip.advice) {
+        setAdviceNum(response);
+      } else {
+        throw new Error('Invalid response format');
+      }
+    } catch (error) {
+      console.error(`Error fetching advice by ID (${slipId}):`, error);
     }
   };
 
   const handlButtonClick = () => {
     console.log("click", );
     fetchData();
+    fetchAdviceById();
     
   };
   return (

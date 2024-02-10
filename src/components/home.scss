@@ -26,14 +26,17 @@
       align-items: center;
       align-self: center;
       text-align: center;
-      position: absolute;
       font-size: 28px;
       line-height: 38.25px;
       color: rgba(206, 227, 233, 1);
 
     }
-    .img{
+    .pattern-image{
       position: absolute;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      text-align: center;
       top: 80%;
       right: 14%;
     }
