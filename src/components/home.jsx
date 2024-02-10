@@ -35,7 +35,7 @@ const Home = () => {
         <div className="advice-num">ADVICE #{adviceNum}</div>
         <div className="advice">{advice}</div>
         <div className="pattern-image">
-          <img src={image} alt="" />
+          <img className="img" src={image} alt="" />
         </div>
         <button className="gen-btn" onClick={handlButtonClick}>
           <img src={genBtn} alt="" />
