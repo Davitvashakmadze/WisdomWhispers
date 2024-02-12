@@ -42,6 +42,7 @@ const Home = () => {
       console.error(`Error fetching advice by ID (${slipId}):`, error);
     }
   };
+  
 
   const handlButtonClick = () => {
     console.log("click", );
