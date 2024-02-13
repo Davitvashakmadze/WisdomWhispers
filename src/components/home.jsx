@@ -3,54 +3,51 @@ import "./home.scss";
 import image from "./images/pattern-divider-desktop.svg";
 import genBtn from "./images/icon-dice.svg";
 
-
 const Home = () => {
   const [advice, setAdvice] = useState(
     "Click down green button to generate Advice"
   );
 
-  const [adviceNum, setAdviceNum] = useState("----------")
- 
+  const [adviceNum, setAdviceNum] = useState("----------");
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://api.adviceslip.com/advice');
+      const response = await fetch("https://api.adviceslip.com/advice");
       const data = await response.json();
 
       if (data.slip.advice) {
         setAdvice(data.slip.advice);
         setAdviceNum(data.slip.id);
       } else {
-        throw new Error('Invalid response format');
+        throw new Error("Invalid response format");
       }
     } catch (error) {
-      console.error('Error fetching advice:', error);
+      console.error("Error fetching advice:", error);
     }
   };
 
   const fetchAdviceById = async (slipId) => {
     try {
-      const response = await fetch(`https://api.adviceslip.com/advice/${slipId}`);
+      const response = await fetch(
+        `https://api.adviceslip.com/advice/${slipId}`
+      );
       const data = await response.json();
 
       if (data.slip.advice) {
         setAdvice(data.slip.advice);
         setAdviceNum(data.slip.id);
       } else {
-        throw new Error('Invalid response format');
+        throw new Error("Invalid response format");
       }
     } catch (error) {
       console.error(`Error fetching advice by ID (${slipId}):`, error);
     }
   };
-  
-  
 
   const handlButtonClick = () => {
-    console.log("click", );
+    console.log("click");
     fetchData();
     fetchAdviceById();
-    
   };
   return (
     <div className="app">
