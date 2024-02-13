@@ -21,9 +21,7 @@ const Home = () => {
       } else {
         throw new Error("Invalid response format");
       }
-    } catch (error) {
-      console.error("Error fetching advice:", error);
-    }
+    } catch (error) {}
   };
 
   const fetchAdviceById = async (slipId) => {
@@ -39,9 +37,7 @@ const Home = () => {
       } else {
         throw new Error("Invalid response format");
       }
-    } catch (error) {
-      console.error(`Error fetching advice by ID (${slipId}):`, error);
-    }
+    } catch (error) {}
   };
 
   const handlButtonClick = () => {
