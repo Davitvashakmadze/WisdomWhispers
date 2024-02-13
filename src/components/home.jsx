@@ -5,7 +5,7 @@ import genBtn from "./images/icon-dice.svg";
 
 
 const Home = () => {
-  const [advice, serAdvice] = useState(
+  const [advice, setAdvice] = useState(
     "Click down green button to generate Advice"
   );
 
@@ -17,9 +17,9 @@ const Home = () => {
       const response = await fetch('https://api.adviceslip.com/advice');
       const data = await response.json();
 
-      // Check if 'slip' property exists in the response
       if (data.slip.advice) {
-        serAdvice(data.slip.advice);
+        setAdvice(data.slip.advice);
+        setAdviceNum(data.slip.id);
       } else {
         throw new Error('Invalid response format');
       }
@@ -34,7 +34,8 @@ const Home = () => {
       const data = await response.json();
 
       if (data.slip.advice) {
-        setAdviceNum(response);
+        setAdvice(data.slip.advice);
+        setAdviceNum(data.slip.id);
       } else {
         throw new Error('Invalid response format');
       }
