@@ -8,7 +8,7 @@ const Home = () => {
     "Click down green button to generate Advice"
   );
 
-  const [adviceNum, setAdviceNum] = useState("----------");
+  const [adviceNum, setAdviceNum] = useState("  - - - - -");
 
   const fetchData = async () => {
     try {
@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className="app">
       <div className="main-app">
-        <div className="advice-num">ADVICE #{adviceNum}</div>
+        <div className="advice-num">ADVICE # {adviceNum}</div>
         <div className="advice">{advice}</div>
         <div className="pattern-image">
           <img className="img" src={image} alt="" />
