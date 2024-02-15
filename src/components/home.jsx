@@ -24,26 +24,9 @@ const Home = () => {
     } catch (error) {}
   };
 
-  const fetchAdviceById = async (slipId) => {
-    try {
-      const response = await fetch(
-        `https://api.adviceslip.com/advice/${slipId}`
-      );
-      const data = await response.json();
-
-      if (data.slip.advice) {
-        setAdvice(data.slip.advice);
-        setAdviceNum(data.slip.id);
-      } else {
-        throw new Error("Invalid response format");
-      }
-    } catch (error) {}
-  };
-
   const handlButtonClick = () => {
     console.log("click");
     fetchData();
-    fetchAdviceById();
   };
   return (
     <div className="app">
